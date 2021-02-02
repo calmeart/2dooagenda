@@ -1,0 +1,53 @@
+<%- include("header") -%>
+
+<%- include("navbar") -%>
+
+  <div class="container">
+      <h1 id="heading"><%= listTitle %></h1>
+  </div>
+
+
+  <div class="container">
+    <div class="row taskContainer">
+      <% listItems.forEach(item => { %>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <form class="task-header-form" action="/calendar/edit" method="post">
+                <h5><%= item.taskName %></h5>
+                <button class="btn btn-outline-secondary" type="submit" name="editTask" value=<%= item._id %>><i class="fas fa-edit"></i></button>
+              </form>
+            </div>
+            <div class="card-body">
+              <% if (item.notes.length < 185) { %>
+                <p class="task-body card-text"><%= item.notes %></p>
+              <% } else { %>
+                <p class="task-body card-text"><%= item.notes.slice(0,185) + "..."%><a class="readMore" href="/tasks/<%= item._id %>">Read More</a></p>
+              <% } %>
+            </div>
+            <form class="task-button-form" action="/calendar/edit" method="post">
+              <button class="btn taskButton" type="submit" name="completeTask" value=<%= item._id %>>Completed</button>
+              <button class="btn taskButton" type="submit" name="sendTomorrow" value=<%= item._id %>>Push Tomorrow</button>
+              <input type="hidden" name="dateValue" value=<%= listDate %>>
+            </form>
+          </div>
+        </div>
+    <% }) %>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <form action="/calendar/create" method="post">
+            <div class="card-header">
+              <input type="text" name="newItem" placeholder="Enter New Item" autocomplete="off">
+            </div>
+            <div class="card-body">
+              <textarea class="task-body" name="newNotes" placeholder="(optional) Enter Note" rows="8" cols="80"></textarea>
+              <button class="btn taskButton" type="submit" name="addItem" value=<%= listDate %>>Add New Item</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include("footer") -%>

@@ -1,0 +1,21 @@
+<%- include("header") -%>
+
+<%- include("navbar") -%>
+
+  <div class="container">
+    <div class="card taskCard">
+      <form action="/task" method="post">
+        <div class="card-header taskHeader">
+          <input type="text" name="editItem" placeholder="<%= doc.taskName %>" value="<%= doc.taskName %>" autocomplete="off">
+          <h5><%= taskDate %></h5>
+        </div>
+        <div class="card-body">
+          <textarea class="task-body" name="editNotes" rows="8" cols="80"><%= doc.notes %></textarea>
+          <button class="btn taskButton" type="submit" name="addItem" value=<%= doc._id %>>Save</button>
+        </div>
+        <input type="hidden" name="dateValue" value="<%= doc.date %>">
+      </form>
+    </div>
+  </div>
+
+<%- include("footer") -%>

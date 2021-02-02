@@ -1,0 +1,27 @@
+
+<nav class="navbar navbar-expand-md">
+  <h2 class="navbar-brand">2DooAgenda</h2>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav ml-auto flex-nowrap">
+      <a class="nav-link m-2" href="/">Home</a>
+      <a class="nav-link m-2" href="/about">About</a>
+      <div class="dropdown">
+        <a class="nav-link m-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calendar</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <form class="nav-form" action="/calendar" method="post">
+            <div class="form-group">
+              <label for="pick-date">Select A Date:</label>
+              <input type="date" class="form-control" id="pick-date" name="calendar" value="<%= listDate %>">
+            </div>
+            <button class="btn" type="submit" name="calendarButton">Go to Date</button>
+          </form>
+        </div>
+      </div>
+      <!-- <a class="nav-link m-2" href="/agenda">Agenda</a> -->
+      <a class="nav-link m-2" href="/contact">Contact</a>
+    </div>
+  </div>
+</nav>

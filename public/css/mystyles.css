@@ -1,0 +1,309 @@
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Spartan', sans-serif;
+  background: linear-gradient(30deg, #2d4059, #1b1f3a);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  color: #fde9c9;
+  font-family: 'Crimson Pro', serif;
+  font-size: 2rem;
+}
+
+h3 {
+  color: #fde9c9;
+  font-family: 'Crimson Pro', serif;
+  margin-top: 50px;
+}
+
+h2 {
+  color: #fde9c9;
+  font-family: 'Courgette', cursive;
+}
+
+h5 {
+  color: #fde9c9;
+  font-family: 'Spartan', sans-serif;
+  font-size: 1rem;
+  line-height: unset;
+  display: inline-block;
+  margin: 0;
+}
+
+p {
+  color: #fde9c9;
+  font-family: 'Spartan', sans-serif;
+  margin: 0;
+  font-size: 1rem;
+}
+
+
+
+/*****************************NAVBAR SECTION******************************/
+
+nav {
+  background-color: #343434;
+}
+
+.nav-form {
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-link {
+  color: #fde9c9;
+}
+
+.nav-link:hover {
+  color: #ea5455;
+}
+
+button[name="calendarButton"] {
+  background-color: #ea5455;
+  border-color: #ea5455;
+  color: #fde9c9;
+  width: 100%;
+}
+
+button[name="calendarButton"]:hover {
+  background-color: #db391e;
+  border-color: #db391e;
+  color: #fde9c9;
+}
+
+.navbar-brand {
+  color: #ea5455;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+}
+
+.dropdown-menu {
+  background-color: #343434;
+  border-color: #fde9c9;
+  color: #fde9c9;
+  right: 0%;
+  left: auto;
+}
+
+/*****************************HOME SECTION************************/
+
+
+#heading {
+  background-color: #2d4059;
+  margin: 50px auto;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.item:last-child {
+  border-bottom: 0;
+  margin-bottom: 100px;
+}
+
+/******************************calendar SECTION****************************/
+
+.taskContainer {
+  margin-bottom: 100px;
+}
+
+.col-lg-4, .col-md-6, .col-sm-6 {
+  padding: 15px;
+}
+
+.card {
+  background-color: #343434;
+}
+
+.card-header {
+  background-color: #343434;
+}
+
+.task-header-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.card-body {
+  background-color: #2d4059;
+}
+
+.task-body {
+  margin: 0;
+  height: 95px;
+  font-size: 0.8rem;
+}
+
+button[name="editTask"] {
+  color: #ea5455;
+  border: 0;
+  padding: 0;
+  padding-left: 5px;
+}
+
+button[name="editTask"]:hover {
+  color: #ea5455;
+}
+
+.readMore {
+  color: #ea5455;
+}
+
+.readMore:hover {
+  color: #db391e;
+}
+
+.task-button-form {
+  background-color: #2d4059;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 10px;
+}
+
+.taskButton {
+  background-color: #343434;
+  border-color: #343434;
+  color: #fde9c9;
+  font-size: 0.8rem;
+  min-width: 120px;
+}
+
+.taskButton:hover {
+  background-color: #db391e;
+  border-color: #db391e;
+  color: #fde9c9;
+}
+
+button[name="addItem"] {
+  background-color: #ea5455;
+  border-color: #ea5455;
+  margin: 20px 0 -10px;
+}
+
+input[type="text"] {
+  color: #fde9c9;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -2px 0 0 #fde9c9;
+}
+
+textarea {
+  background-color: #2d4059;
+  color: #fde9c9;
+  display: block;
+  width: 100%;
+  max-height: 93px;
+  padding: 0;
+  border: 0;
+  resize: none;
+}
+
+textarea:focus {
+  outline: 0;
+  box-shadow: inset 0 -2px 0 0 #fde9c9;
+}
+
+/******************************TASK SECTION*******************************/
+
+.taskCard {
+  margin-top: 50px;
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[name="editItem"] {
+  width: 70%;
+}
+
+textarea[name="editNotes"] {
+  min-height: 250px;
+}
+
+/******************************FOOTER SECTION*****************************/
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #343434;
+  color: #fde9c9;
+  text-align: center;
+  padding: 20px;
+}
+
+/*****************************ABOUT SECTION***********************************/
+
+.about {
+  margin-bottom: 100px;
+}
+
+.about-image {
+  margin-top: 50px;
+}
+
+/****************************CONTACT SECTION*********************************/
+
+.contactMessage {
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+
+label {
+  color: #fde9c9;
+  padding-bottom: 10px;
+}
+
+input[name="userName"]{
+  width: 80%;
+}
+
+input[type="email"] {
+  background-color: #2d4059;
+  box-shadow: none;
+  border: none;
+  color: #fde9c9;
+  width: 80%;
+}
+
+input[type="email"]:active {
+  box-shadow: inset 0 -2px 0 0 #fde9c9;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  box-shadow: inset 0 -2px 0 0 #fde9c9;
+}
+
+input[type="email"]:invalid {
+  box-shadow: inset 0 -2px 0 0 #db391e;
+}
+
+button[name="sendMessage"] {
+  background-color: #ea5455;
+  border-color: #ea5455;
+  margin: 20px 0 -10px;
+}

@@ -1,0 +1,50 @@
+<%- include("header") -%>
+
+<%- include("navbar") -%>
+
+<div class="container about">
+
+  <h3>What is 2DooAgenda ?</h3>
+  <p>It is a To Do List application, where you can create tasks, add notes to them, organize them by dates and, hopefully, remove them from your list.</p>
+  <p style="padding-top:20px;">This is an exercise application created based on the instructions of Angela Yu's bootcamp, and is my first attempt to deploy an app that I create. If you are interested in the source code, you can find the github repository <a class="readMore" href="#">through this link.</a> </p>
+
+  <h3>Home</h3>
+  <p>This page displays the dates and titles of all the tasks, sorted by each task's date. Basically has no other function than displaying.</p>
+
+  <h3>Calendar</h3>
+  <p>This is where the magic happens. Pick a date from the calendar button to navigate to that day's page and display, create or edit the tasks for that day.</p>
+
+  <div class="about-image-box">
+    <div class="row">
+      <div class="col-4">
+        <img class="about-image" src="images/new-item.png" alt="create-new-item-image">
+      </div>
+      <div class="col-8">
+        <h3>How to Create a Task ? </h3>
+        <p>In order to create a task, simply fill in the task and notes card and click add item.</p>
+
+        <h3>How to Edit ? </h3>
+        <p>Each task card has an edit button next to Task Title, clicking it will redirect you to that tasks page.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <img class="about-image" src="images/task-card.png" alt="example-task-card">
+      </div>
+      <div class="col-8">
+        <h3>How to Delete ? </h3>
+        <p>Each task card has a 'Completed' button for all those tasks that you managed to complete.</p>
+
+        <h3>Push Tomorrow ? </h3>
+        <p>But if you are a big fan of procrastinating, or you couldn't finish your tasks because a 50-year old drunk guy named Andriy has got wasted and fell onto your car from his balcony on the third floor and you had to spend your entire day in hospital, police station and car service, you can always delay your tasks to the next day.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Finally</h3>
+  <p>I am sure some of you will be thinking things like, "Can't we just click the dates on the home page to navigate to that date ?" or "Why I cannot change the date while editing the tasks ?", you are absolutely right, that would be better. But as I said this is just an exercise app, I left some loose hands so I will return back to perfect it one day. Also, if you have any other suggestions, please proceed to the Contact page.</p>
+</div>
+
+
+
+<%- include("footer") -%>
