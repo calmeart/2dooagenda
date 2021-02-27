@@ -5,6 +5,8 @@ const date = require("./date.js")
 const mongoose = require("mongoose");
 const database = require("./database.js")
 
+
+
 require('dotenv').config();
 
 app.set('view engine', "ejs");
@@ -12,17 +14,7 @@ app.set('view engine', "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Server connection is established!");
-  }
-});
-
+require('./database/connection')();
 
 app.get('/', function(req, res) {
   const day = date.getDate();
