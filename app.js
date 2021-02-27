@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const date = require("./date.js")
 const mongoose = require("mongoose");
 const calendarRoutes = require('./routes/calendar-routes');
+const taskRoutes = require('./routes/task-routes');
 
 const Task = require('./database/task-model');
 
@@ -18,6 +19,7 @@ require('./database/connection')();
 
 
 app.use('/calendar', calendarRoutes);
+app.use('/tasks', taskRoutes);
 
 app.get('/', function(req, res) {
   const day = date.getDate();
@@ -67,15 +69,6 @@ app.get("/contact/success", function(req,res){
     listDate: new Date().toISOString().slice(0,10)
   });
 });
-
-app.post("/task", async function(req,res){
-  const {editItem, editNotes, addItem} = req.body;
-  const query = new Date(req.body.dateValue).toISOString().slice(0,10);
-  const promise = await database.Task.findByIdAndUpdate(addItem, {taskName: editItem, notes: editNotes}, function(err){
-    if (err) {console.log(err)};
-  });
-  res.redirect("/calendar/" + query);
-})
 
 app.post("/contact", async function(req,res){
   const {userName, userMail, message} = req.body;

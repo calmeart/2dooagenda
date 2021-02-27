@@ -24,7 +24,7 @@ router.get("/:date", async function(req, res) {
   });
 });
 
-router.post("/",async function(req,res){
+router.post("/", async function(req,res){
   res.redirect("/calendar/" + req.body.calendar);
 })
 
