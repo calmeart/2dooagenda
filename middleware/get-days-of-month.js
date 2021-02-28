@@ -13,6 +13,7 @@ module.exports = (req, res, next) => {
     var tempObj = {};
     if (i >= 1 && i <= date) {
       tempObj = {
+        year,
         month: month,
         day: i
       }
@@ -20,12 +21,14 @@ module.exports = (req, res, next) => {
       const previousMonth = month - 1;
       const previousMonthDays = new Date(year, previousMonth, 0).getDate();
       tempObj = {
+        year,
         month: previousMonth.toString().length == 1 ? "0" + previousMonth : previousMonth.toString(),
         day: previousMonthDays + i
       }
     } else if (i > date) {
       const nextMonth = Number(month) + 1;
       tempObj = {
+        year,
         month: nextMonth.toString().length == 1 ? "0" + nextMonth : nextMonth.toString(),
         day: i - date
       }

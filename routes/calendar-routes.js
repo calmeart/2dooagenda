@@ -3,6 +3,7 @@ const router = express.Router();
 const Task = require('../database/task-model');
 const moment = require("moment");
 const getDaysOfMonth = require('../middleware/get-days-of-month');
+const addTasksToDate = require('../middleware/add-tasks-to-dates');
 
 function getDate(date = new Date()) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -29,7 +30,7 @@ router.post("/", async function(req,res){
   res.redirect("/calendar/" + req.body.calendar);
 })
 
-router.get("/:year/:month", getDaysOfMonth, async function(req, res) {
+router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
   res.render('months', {
     listDate: new Date().toISOString().slice(0, 10),
     daysOfMonth: req.daysOfMonth
