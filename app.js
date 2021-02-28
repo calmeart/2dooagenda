@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const date = require("./date.js")
 const mongoose = require("mongoose");
 const calendarRoutes = require('./routes/calendar-routes');
 const taskRoutes = require('./routes/task-routes');

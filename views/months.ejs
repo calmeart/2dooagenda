@@ -1,0 +1,25 @@
+<%- include("partials/header") -%>
+
+<%- include("partials/navbar") -%>
+
+<div class="container">
+  <div class="pickDate">
+    <form action="calendar/years/months" method="post">
+
+      <h1 id="heading"><button type="submit" name="previous"><i class="fas fa-chevron-left"></i></button>Month<button type="submit" name="next"><i class="fas fa-chevron-right"></i></button></h1>
+
+    </form>
+  </div>
+
+  <div class="calendarMonthBox">
+    <% daysOfMonth.forEach(item => { %>
+      <div class="calendarDayBox card">
+        <h5><%= item.day %></h5>
+      </div>
+    <% }) %>
+  </div>
+
+  </div>
+</div>
+
+<%- include("partials/footer") -%>

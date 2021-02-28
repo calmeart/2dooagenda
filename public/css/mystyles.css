@@ -117,7 +117,25 @@ button[name="calendarButton"]:hover {
   margin-bottom: 100px;
 }
 
-/******************************calendar SECTION****************************/
+/******************************MONTH PAGE**********************************/
+
+.calendarMonthBox {
+  margin: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.calendarDayBox {
+  background: transparent !important;
+  border-color: #fde9c9;
+  width: 14%;
+  text-align: left;
+  height: 100px;
+  padding: 5px;
+}
+
+/******************************CALENDAR SECTION****************************/
 
 .taskContainer {
   margin-bottom: 100px;

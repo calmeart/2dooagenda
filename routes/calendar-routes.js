@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../database/task-model');
 const moment = require("moment");
+const getDaysOfMonth = require('../middleware/get-days-of-month');
 
 function getDate(date = new Date()) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -17,7 +18,7 @@ router.get("/:date", async function(req, res) {
   const foundTasks = await Task.find({
     date: new Date(req.params.date)
   });
-  res.render("calendar", {
+  res.render("days", {
     listTitle: listTitle,
     listItems: foundTasks,
     listDate: req.params.date
@@ -26,6 +27,13 @@ router.get("/:date", async function(req, res) {
 
 router.post("/", async function(req,res){
   res.redirect("/calendar/" + req.body.calendar);
+})
+
+router.get("/:year/:month", getDaysOfMonth, async function(req, res) {
+  res.render('months', {
+    listDate: new Date().toISOString().slice(0, 10),
+    daysOfMonth: req.daysOfMonth
+  });
 })
 
 router.post('/create', async function(req, res) {
