@@ -15,6 +15,9 @@
     <% daysOfMonth.forEach(item => { %>
       <div class="calendarDayBox card">
         <h5><%= item.day %></h5>
+        <% item.tasks.forEach(task => { %>
+          <p><%= task.taskName %></p>
+        <% }) %>
       </div>
     <% }) %>
   </div>

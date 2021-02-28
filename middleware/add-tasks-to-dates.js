@@ -9,5 +9,6 @@ module.exports = async (req, res, next) => {
       return {year, month, day, tasks: foundTask};
     })
   )
+  req.daysOfMonth = tempArray;
   next();
 }
