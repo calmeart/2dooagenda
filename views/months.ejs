@@ -14,15 +14,16 @@
   <div class="calendarMonthBox">
     <% daysOfMonth.forEach(item => { %>
       <div class="calendarDayBox card">
-        <h5><%= item.day %></h5>
+        <h5><a href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a></h5>
         <% item.tasks.forEach(task => { %>
-          <p><%= task.taskName %></p>
+        <p><%= task.taskName %></p>
         <% }) %>
       </div>
+
     <% }) %>
   </div>
 
-  </div>
+</div>
 </div>
 
 <%- include("partials/footer") -%>

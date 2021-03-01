@@ -14,15 +14,17 @@ function getDate(date = new Date()) {
   });
 };
 
-router.get("/:date", async function(req, res) {
-  const listTitle = getDate(req.params.date);
+router.get("/:year/:month/:day", async function(req, res) {
+  const {year, month, day} = req.params;
+  const dateString = `${year}-${month}-${day}`;
+  const listTitle = getDate(dateString);
   const foundTasks = await Task.find({
-    date: new Date(req.params.date)
+    date: new Date(dateString)
   });
   res.render("days", {
     listTitle: listTitle,
     listItems: foundTasks,
-    listDate: req.params.date
+    listDate: dateString
   });
 });
 
@@ -42,7 +44,7 @@ router.post('/create', async function(req, res) {
   if (newNotes === "") {newNotes = "No additional info"};
   const tempTask = new Task({taskName: newItem, date: addItem, notes: newNotes});
   await tempTask.save();
-  res.redirect("/calendar/" + req.body.addItem);
+  res.redirect("/calendar/" + req.body.addItem.split("-").join("/"));
 });
 
 router.post("/edit", async function(req,res){
@@ -51,13 +53,13 @@ router.post("/edit", async function(req,res){
   }
   if (req.body.completeTask) {
     await Task.findByIdAndDelete(req.body.completeTask);
-    res.redirect("/calendar/" + req.body.dateValue);
+    res.redirect("/calendar/" + req.body.dateValue.split("-").join("/"));
   }
   if (req.body.sendTomorrow) {
     const foundTask = await Task.findById(req.body.sendTomorrow);
     const newDate = moment(foundTask.date).add(1, 'days').format("YYYY-MM-DD");
     await Task.findByIdAndUpdate(req.body.sendTomorrow, {date: newDate});
-    res.redirect("/calendar/" + req.body.dateValue)
+    res.redirect("/calendar/" + req.body.dateValue.split("-").join("/"))
   }
 });
 
