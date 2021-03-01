@@ -296,6 +296,15 @@ textarea:focus {
 
 input[name="editItem"] {
   width: 70%;
+  color: #fde9c9;
+  border: none;
+  background: transparent;
+}
+
+input[name="editItem"]:focus {
+  outline: none;
+  background: transparent;
+  box-shadow: inset 0 -2px 0 0 #fde9c9;
 }
 
 textarea[name="editNotes"] {
