@@ -1,3 +1,11 @@
+:root {
+  --main-color: #2d4059;
+  --secondary-color: #1b1f3a;
+  --font-color: #fde9c9;
+  --attention-color: #ea5455;
+  --highlight-color: #db391e;
+}
+
 
 body {
   height: 100%;
@@ -41,7 +49,12 @@ p {
   font-size: 1rem;
 }
 
-
+.credit {
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  font-size: .6rem;
+}
 
 /*****************************NAVBAR SECTION******************************/
 
@@ -92,7 +105,20 @@ button[name="calendarButton"]:hover {
 }
 
 /*****************************HOME SECTION************************/
-
+/*****************************LANDING PAGE***************************/
+/*linear-gradient(30deg, #2d4059, #1b1f3a)*/
+#landing {
+  background: linear-gradient(30deg, rgb(45, 64, 89, .9), rgb(27, 31, 58, .9)),
+  url('../images/calendar.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
 
 #heading {
   background-color: #2d4059;
@@ -103,19 +129,32 @@ button[name="calendarButton"]:hover {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
-.item {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #F1F1F1;
-  margin-left: 15px;
-  margin-right: 15px;
+.loginForm {
+  background: #fff;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  margin: auto;
+  padding: 20px;
+  width: 60%;
+  min-width: 400px;
+
+
 }
 
-.item:last-child {
-  border-bottom: 0;
-  margin-bottom: 100px;
+label {
+  color: #212529;
 }
+
+/* input {
+  color: #fde9c9 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: inset 0 -2px 0 0 #fde9c9 !important;
+} */
 
 /******************************MONTH PAGE**********************************/
 
@@ -215,7 +254,7 @@ button[name="addItem"] {
   margin: 20px 0 -10px;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   color: #fde9c9;
   border: none;
   background: transparent;
@@ -224,8 +263,9 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
+  background: transparent;
   box-shadow: inset 0 -2px 0 0 #fde9c9;
-}
+} */
 
 textarea {
   background-color: #2d4059;
@@ -291,10 +331,10 @@ footer {
   margin-left: 20px;
 }
 
-label {
+/* label {
   color: #fde9c9;
   padding-bottom: 10px;
-}
+} */
 
 input[name="userName"]{
   width: 80%;
