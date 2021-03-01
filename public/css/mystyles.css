@@ -130,19 +130,47 @@ button[name="calendarButton"]:hover {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+.btn {
+  background-color: var(--attention-color);
+  color: var(--font-color);
+  border-color: transparent;
+}
+
+.btn:hover {
+  background-color: var(--highlight-color);
+  color: var(--font-color);
+  border-color: transparent;
+}
+
+.btn:focus {
+  background-color: var(--highlight-color);
+  color: var(--font-color);
+  box-shadow: none;
+}
+
+.loginButton {
+  width: 60%;
+  min-width: 400px;
+}
+
 .loginForm {
-  background: #fff;
+  position: relative;
+  background: var(--font-color);
   border: 2px solid var(--main-color);
   border-radius: 5px;
   margin: auto;
+  margin-top: -0.25rem;
   padding: 20px;
   width: 60%;
   min-width: 400px;
-
-
+  border: 2px solid var(--highlight-color);
+  border-radius: .25rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  z-index: 2;
 }
 
-label {
+.loginForm label, .loginForm p {
   color: #212529;
 }
 
