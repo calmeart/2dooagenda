@@ -124,6 +124,7 @@ button[name="calendarButton"]:hover {
   background-color: #2d4059;
   margin: 50px auto;
   text-align: center;
+  letter-spacing: .2rem;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
