@@ -31,14 +31,14 @@ module.exports = (req, res, next) => {
       const previousMonthDays = new Date(previousYear, previousMonth, 0).getDate();
       const previousDay = previousMonthDays + i;
       tempObj = {
-        previousYear,
+        year: previousYear,
         month: previousMonth.toString().length == 1 ? "0" + previousMonth : previousMonth.toString(),
         day: previousDay.toString().length == 1 ? "0" + previousDay : previousDay.toString()
       }
     } else if (i > date) {
       const nextDay = i - date;
       tempObj = {
-        nextYear,
+        year: nextYear,
         month: nextMonth.toString().length == 1 ? "0" + nextMonth : nextMonth.toString(),
         day: nextDay.toString().length == 1 ? "0" + nextDay : nextDay.toString()
       }
