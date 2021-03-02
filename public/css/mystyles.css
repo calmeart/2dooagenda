@@ -218,26 +218,33 @@ p span {
 }
 
 .calendarMonthBox {
-  margin: 1%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-radius: 0;
 }
 
 .dayName {
-  width: 14%;
+  width: calc(100% / 7);
   text-align: center;
   color: var(--attention-color);
+  border-right: 1px solid black;
+  border-radius: 0;
 }
 
 .calendarDayBox {
-  background: transparent !important;
+  background: transparent;
   border-color: #fde9c9;
-  width: 14%;
-  text-align: left;
+  width: calc(100% / 7);
   height: 115px;
   padding: 5px;
+  white-space: nowrap;
   overflow: hidden;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 0;
 }
 
 .calDay {
