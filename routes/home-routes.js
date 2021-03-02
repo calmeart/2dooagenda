@@ -2,15 +2,6 @@ const express = require('express');
 const Task = require('../database/task-model');
 const Message = require('../database/message-model');
 
-function getDate(date = new Date()) {
-  return new Date(date).toLocaleDateString("en-US", {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  });
-};
-
 module.exports = (app) => {
   app.get('/', function(req, res) {
     const date = new Date();

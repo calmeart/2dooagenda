@@ -1,7 +1,5 @@
 const moment = require('moment');
 
-
-
 module.exports = (req, res, next) => {
 
   const {year, month, day} = req.params;
@@ -12,6 +10,7 @@ module.exports = (req, res, next) => {
 
   req.daysHeaderValues = {
     previousDate: previousDay.split("-"),
+    currentDate: dateString.split("-"),
     nextDate: nextDay.split("-")
   }
   next();

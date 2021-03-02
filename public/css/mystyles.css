@@ -185,11 +185,15 @@ p span {
 
 /******************************MONTH PAGE**********************************/
 
+.pickDate {
+  text-align: center;
+  margin: 50px auto;
+}
+
 .headingBox {
   display: flex;
   justify-content: space-between;
   background-color: var(--main-color);
-  margin: 50px auto;
   letter-spacing: .2rem;
   padding: 15px;
   border-radius: 5px;
