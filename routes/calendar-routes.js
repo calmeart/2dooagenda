@@ -25,7 +25,8 @@ router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
   res.render("days", {
     listTitle: listTitle,
     listItems: foundTasks,
-    listDate: dateString
+    listDate: dateString,
+    headerValues: req.daysHeaderValues
   });
 });
 
