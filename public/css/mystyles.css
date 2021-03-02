@@ -219,6 +219,7 @@ p span {
 }
 
 .calendarMonthBox {
+  background-color: var(--main-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -228,7 +229,8 @@ p span {
 }
 
 .calendarMonthBox:last-child {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+  background-color: transparent;
 }
 
 .dayName {
