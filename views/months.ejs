@@ -4,13 +4,11 @@
 
 <div class="container">
   <div class="pickDate">
-    <form action="calendar/years/months" method="post">
       <div class="headingBox">
         <a class="btn navButton" href="/calendar/<%= headerValues.previousYear %>/<%= headerValues.previousMonth %>"><i class="fas fa-chevron-left"></i></a>
         <h1 id="heading">"<%= headerValues.monthName %>, <%= headerValues.year %>"</h1>
         <a class="btn navButton" href="/calendar/<%= headerValues.nextYear %>/<%= headerValues.nextMonth %>"><i class="fas fa-chevron-right"></i></a>
       </div>
-    </form>
   </div>
 
   <div class="calendarMonthBox">
