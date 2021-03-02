@@ -22,10 +22,10 @@
   </div>
   <div class="calendarMonthBox">
     <% daysOfMonth.forEach(item => { %>
-      <div class="calendarDayBox">
-        <a class="calDay" href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a>
+      <div class="calendarDayBox <%= item.className %>">
+        <a class="calDay <%= item.className %>" href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a>
         <% item.tasks.forEach(task => { %>
-        <p class="calTask"><%= task.taskName %></p>
+        <p class="calTask <%= item.className %>"><%= task.taskName %></p>
         <% }) %>
       </div>
     <% }) %>

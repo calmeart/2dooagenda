@@ -25,7 +25,8 @@ module.exports = (req, res, next) => {
       tempObj = {
         year,
         month: month,
-        day: i.toString().length == 1 ? "0" + i : i.toString()
+        day: i.toString().length == 1 ? "0" + i : i.toString(),
+        className: ""
       }
     } else  if (i < 1 ) {
       const previousMonthDays = new Date(previousYear, previousMonth, 0).getDate();
@@ -33,14 +34,16 @@ module.exports = (req, res, next) => {
       tempObj = {
         year: previousYear,
         month: previousMonth.toString().length == 1 ? "0" + previousMonth : previousMonth.toString(),
-        day: previousDay.toString().length == 1 ? "0" + previousDay : previousDay.toString()
+        day: previousDay.toString().length == 1 ? "0" + previousDay : previousDay.toString(),
+        className: "blackedOut"
       }
     } else if (i > date) {
       const nextDay = i - date;
       tempObj = {
         year: nextYear,
         month: nextMonth.toString().length == 1 ? "0" + nextMonth : nextMonth.toString(),
-        day: nextDay.toString().length == 1 ? "0" + nextDay : nextDay.toString()
+        day: nextDay.toString().length == 1 ? "0" + nextDay : nextDay.toString(),
+        className: "blackedOut"
       }
     }
     calendarArray.push(tempObj);

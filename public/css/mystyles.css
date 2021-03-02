@@ -4,6 +4,7 @@
   --font-color: #fde9c9;
   --attention-color: #ea5455;
   --highlight-color: #db391e;
+  --disabled-color: #333333;
 }
 
 
@@ -226,6 +227,10 @@ p span {
   border-radius: 0;
 }
 
+.calendarMonthBox:last-child {
+  margin-bottom: 100px;
+}
+
 .dayName {
   width: calc(100% / 7);
   text-align: center;
@@ -245,6 +250,12 @@ p span {
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   border-radius: 0;
+}
+
+.blackedOut {
+  background-color: var(--disabled-color) !important;
+  color: gray !important;
+  pointer-events: none;
 }
 
 .calDay {
