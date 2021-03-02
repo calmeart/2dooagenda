@@ -10,6 +10,13 @@ module.exports = (req, res, next) => {
   const dayStart = new Date(monthStart).getDay();
   const dayEnd = new Date(monthEnd).getDay();
 
+  // Calculating Previous and Next dates' headerValues
+
+  const previousMonth = month === "01" ? "12" : Number(month) - 1;
+  const previousYear = month === "01" ? (Number(year) - 1).toString() : year;
+  const nextMonth = month === "12" ? "01" : Number(month) + 1;
+  const nextYear = month === "12" ? (Number(year) + 1).toString() : year;
+
   // CREATING AN OBJECT WITH THE DAYS OF THIS MONTH
 
   for (let i = 1 - dayStart; i <= date + (6 - dayEnd); i++) {
@@ -21,19 +28,17 @@ module.exports = (req, res, next) => {
         day: i.toString().length == 1 ? "0" + i : i.toString()
       }
     } else  if (i < 1 ) {
-      const previousMonth = month === "01" ? "12" : Number(month) - 1;
-      const previousMonthDays = new Date(year, previousMonth, 0).getDate();
+      const previousMonthDays = new Date(previousYear, previousMonth, 0).getDate();
       const previousDay = previousMonthDays + i;
       tempObj = {
-        year,
+        previousYear,
         month: previousMonth.toString().length == 1 ? "0" + previousMonth : previousMonth.toString(),
         day: previousDay.toString().length == 1 ? "0" + previousDay : previousDay.toString()
       }
     } else if (i > date) {
-      const nextMonth = month === "12" ? "01" : Number(month) + 1;
       const nextDay = i - date;
       tempObj = {
-        year,
+        nextYear,
         month: nextMonth.toString().length == 1 ? "0" + nextMonth : nextMonth.toString(),
         day: nextDay.toString().length == 1 ? "0" + nextDay : nextDay.toString()
       }
@@ -43,9 +48,6 @@ module.exports = (req, res, next) => {
   req.daysOfMonth = calendarArray;
 
   // CREATING AN OBJECT FOR HEADER TITLE AND LINK ARROWS
-
-  let previousMonth = month === "01" ? "12" : Number(month) - 1;
-  let nextMonth = month === "12" ? "01" : Number(month) + 1;
 
   const headerValues = {
     year,
