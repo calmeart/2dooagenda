@@ -4,6 +4,7 @@ const Task = require('../database/task-model');
 const moment = require("moment");
 const getDaysOfMonth = require('../middleware/get-days-of-month');
 const addTasksToDate = require('../middleware/add-tasks-to-dates');
+const daysHeaderValues = require('../middleware/days-header-values');
 
 function getDate(date = new Date()) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -14,7 +15,7 @@ function getDate(date = new Date()) {
   });
 };
 
-router.get("/:year/:month/:day", async function(req, res) {
+router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
   const {year, month, day} = req.params;
   const dateString = `${year}-${month}-${day}`;
   const listTitle = getDate(dateString);
