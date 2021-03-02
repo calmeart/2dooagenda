@@ -33,7 +33,10 @@ router.post("/", async function(req,res){
 })
 
 router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
+  let {year, month} = req.params;
+  month = new Date(year, month - 1).toLocaleDateString('en-GB', { month:'long' });
   res.render('months', {
+    headerValues: req.headerValues,
     listDate: new Date().toISOString().slice(0, 10),
     daysOfMonth: req.daysOfMonth
   });

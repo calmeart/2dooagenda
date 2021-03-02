@@ -5,18 +5,29 @@
 <div class="container">
   <div class="pickDate">
     <form action="calendar/years/months" method="post">
-
-      <h1 id="heading"><button type="submit" name="previous"><i class="fas fa-chevron-left"></i></button>Month<button type="submit" name="next"><i class="fas fa-chevron-right"></i></button></h1>
-
+      <div class="headingBox">
+        <a class="btn navButton" href="/calendar/<%= headerValues.previousYear %>/<%= headerValues.previousMonth %>"><i class="fas fa-chevron-left"></i></a>
+        <h1 id="heading">"<%= headerValues.monthName %>, <%= headerValues.year %>"</h1>
+        <a class="btn navButton" href="/calendar/<%= headerValues.nextYear %>/<%= headerValues.nextMonth %>"><i class="fas fa-chevron-right"></i></a>
+      </div>
     </form>
   </div>
 
   <div class="calendarMonthBox">
+    <p class="dayName">Sun</p>
+    <p class="dayName">Mon</p>
+    <p class="dayName">Tue</p>
+    <p class="dayName">Wed</p>
+    <p class="dayName">Thu</p>
+    <p class="dayName">Fri</p>
+    <p class="dayName">Sat</p>
+  </div>
+  <div class="calendarMonthBox">
     <% daysOfMonth.forEach(item => { %>
       <div class="calendarDayBox card">
-        <h5><a href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a></h5>
+        <a class="calDay" href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a>
         <% item.tasks.forEach(task => { %>
-        <p><%= task.taskName %></p>
+        <p class="calTask"><%= task.taskName %></p>
         <% }) %>
       </div>
 

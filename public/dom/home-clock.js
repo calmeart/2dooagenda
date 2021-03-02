@@ -1,6 +1,6 @@
 
 
-const clockHeader = document.getElementById('heading');
+const clockHeader = document.getElementById('clockHeading');
 
 const dateOptions = {
   weekday: 'long',
