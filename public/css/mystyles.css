@@ -213,7 +213,7 @@ p span {
   border: none;
 }
 
-.navButton:hover, .navButton:active {
+.navButton:hover, .navButton:active, .navButton:focus {
   background-color: transparent;
   color: var(--highlight-color);
 }
