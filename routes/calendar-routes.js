@@ -15,6 +15,33 @@ function getDate(date = new Date()) {
   });
 };
 
+router.post("/", async function(req,res){
+  res.redirect("/calendar/" + req.body.calendar);
+})
+
+router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
+  let {year, month} = req.params;
+  month = new Date(year, month - 1).toLocaleDateString('en-GB', { month:'long' });
+  res.render('months', {
+    headerValues: req.headerValues,
+    listDate: new Date().toISOString().slice(0, 10),
+    daysOfMonth: req.daysOfMonth
+  });
+});
+
+router.get('/:year', (req, res) => {
+  const year = req.params.year;
+  const yearArray = {
+    previousYear: (Number(year) - 1).toString(),
+    currentYear: year,
+    nextYear: (Number(year) + 1).toString()
+  }
+  res.render('years', {
+    listDate: new Date().toISOString().slice(0, 10),
+    headerValues: yearArray
+  });
+});
+
 router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
   const {year, month, day} = req.params;
   const dateString = `${year}-${month}-${day}`;
@@ -29,20 +56,6 @@ router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
     headerValues: req.daysHeaderValues
   });
 });
-
-router.post("/", async function(req,res){
-  res.redirect("/calendar/" + req.body.calendar);
-})
-
-router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
-  let {year, month} = req.params;
-  month = new Date(year, month - 1).toLocaleDateString('en-GB', { month:'long' });
-  res.render('months', {
-    headerValues: req.headerValues,
-    listDate: new Date().toISOString().slice(0, 10),
-    daysOfMonth: req.daysOfMonth
-  });
-})
 
 router.post('/create', async function(req, res) {
   let {newItem, newNotes, addItem } = req.body;
