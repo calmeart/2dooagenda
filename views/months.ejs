@@ -3,12 +3,13 @@
 <%- include("partials/navbar") -%>
 
 <div class="container">
-  <div class="pickDate">
-      <div class="headingBox">
-        <a class="btn navButton" href="/calendar/<%= headerValues.previousYear %>/<%= headerValues.previousMonth %>"><i class="fas fa-chevron-left"></i></a>
-        <h1 id="heading"><%= headerValues.monthName %>, <%= headerValues.year %></h1>
-        <a class="btn navButton" href="/calendar/<%= headerValues.nextYear %>/<%= headerValues.nextMonth %>"><i class="fas fa-chevron-right"></i></a>
-      </div>
+  <div class="pickDate" style="margin-top: 0;">
+    <a class="btn navButton" href="/calendar/<%= headerValues.year %>"><i class="fas fa-chevron-up"></i></a>
+    <div class="headingBox">
+      <a class="btn navButton" href="/calendar/<%= headerValues.previousYear %>/<%= headerValues.previousMonth %>"><i class="fas fa-chevron-left"></i></a>
+      <h1 id="heading"><%= headerValues.monthName %>, <%= headerValues.year %></h1>
+      <a class="btn navButton" href="/calendar/<%= headerValues.nextYear %>/<%= headerValues.nextMonth %>"><i class="fas fa-chevron-right"></i></a>
+    </div>
   </div>
 
   <div class="calendarMonthBox">
@@ -22,12 +23,12 @@
   </div>
   <div class="calendarMonthBox">
     <% daysOfMonth.forEach(item => { %>
-      <div class="calendarDayBox <%= item.className %>">
-        <a class="calDay <%= item.className %>" href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a>
-        <% item.tasks.forEach(task => { %>
-        <p class="calTask <%= item.className %>"><%= task.taskName %></p>
-        <% }) %>
-      </div>
+    <div class="calendarDayBox <%= item.className %>">
+      <a class="calDay <%= item.className %>" href="/calendar/<%= item.year %>/<%= item.month %>/<%= item.day %>"><%= item.day %></a>
+      <% item.tasks.forEach(task => { %>
+      <p class="calTask <%= item.className %>"><%= task.taskName %></p>
+      <% }) %>
+    </div>
     <% }) %>
   </div>
 
