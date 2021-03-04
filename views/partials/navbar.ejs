@@ -1,7 +1,8 @@
 
+
 <nav class="navbar navbar-expand-md">
   <h2 class="navbar-brand">2DooAgenda</h2>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler mx-3 navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-end mx-3" id="navbarSupportedContent">
@@ -9,12 +10,12 @@
       <a class="nav-link m-2" href="/">Home</a>
       <a class="nav-link m-2" href="/about">About</a>
       <div class="dropdown">
-        <a class="nav-link m-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calendar</a>
+        <a class="nav-link m-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Calendar</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <form class="nav-form" action="/calendar" method="post">
             <div class="form-group">
               <label for="pick-date">Select A Date:</label>
-              <input type="date" class="form-control" id="pick-date" name="calendar" value="<%= listDate %>">
+              <input type="date" class="form-control my-3" id="pick-date" name="calendar" value="<%= listDate %>">
             </div>
             <button class="btn" type="submit" name="calendarButton">Go to Date</button>
           </form>

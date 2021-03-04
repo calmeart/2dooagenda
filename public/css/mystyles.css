@@ -97,12 +97,20 @@ button[name="calendarButton"]:hover {
   padding-left: 20px;
 }
 
+.navbar-toggler {
+  border-color: var(--attention-color);
+}
+
+.navbar-light {
+
+}
+
 .dropdown-menu {
   background-color: #343434;
   border-color: #fde9c9;
   color: #fde9c9;
   right: 0%;
-  left: auto;
+  left: auto !important;
 }
 
 /*****************************HOME SECTION************************/
