@@ -1,4 +1,5 @@
 const express = require('express');
+const passport = require('passport');
 const User = require('../database/user-model');
 const Message = require('../database/message-model');
 

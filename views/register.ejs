@@ -6,12 +6,10 @@
 
     <h1 id="clockHeading"></h1>
     <p class="m-5">Welcome to <span>2dooAgenda</span>, a To-do List Application</p>
-    <a class="loginButton btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Let's get things done
-    </a>
-    <div class="collapse loginForm" id="collapseExample">
-      <p class="mb-3">Sign in to access your calendar</p>
-      <form action="/login" method="post">
+
+    <div class="loginForm">
+      <p class="mb-3">Enter an username and password to create your account</p>
+      <form action="/register" method="post">
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" placeholder="Username" required>
           <label for="floatingInput">Username</label>
@@ -20,16 +18,10 @@
           <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
           <label for="floatingPassword">Password</label>
         </div>
-        <button class="btn btn-primary mb-3" type="submit" name="loginButton">Get Started</button>
+        <button class="btn btn-primary mb-3" type="submit" name="registerButton">Register</button>
       </form>
-      <p>Don't have an account?</p>
-      <a href="/register">This link will take you where you can create one</a>
     </div>
-
-
-
   </div>
-
 
   <p class="credit">Photo by 戴 宇扬 from Pexels.</p>
 </div>
