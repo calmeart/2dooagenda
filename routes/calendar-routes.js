@@ -16,7 +16,7 @@ function getDate(date = new Date()) {
 };
 
 router.post("/", async function(req,res){
-  res.redirect("/calendar/" + req.body.calendar);
+  res.redirect("/calendar/" + req.body.calendar.split("-").join("/"));
 })
 
 router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
