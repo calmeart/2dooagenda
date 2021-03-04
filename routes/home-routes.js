@@ -20,19 +20,21 @@ module.exports = (app) => {
     .post((req, res) => {
       User.register(new User({
         username: req.body.username,
-        accountType: "member"
       }), req.body.password, function(err, result) {
         if (err) {
+          console.log(err);
           return res.render('register');
         }
         passport.authenticate('local')(req, res, function() {
-          res.redirect('/users');
+          const dateString = new Date().toISOString().slice(0, 10);
+          res.redirect('/calendar/' + dateString.split("-").join("/"));
         })
       })
     })
 
   app.post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/users');
+    const dateString = new Date().toISOString().slice(0, 10);
+    res.redirect('/calendar/' + dateString.split("-").join("/"));
   });
 
   app.get('/logout', function(req, res) {
