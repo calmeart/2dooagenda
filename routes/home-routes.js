@@ -1,11 +1,42 @@
 const express = require('express');
-const Task = require('../database/task-model');
+const User = require('../database/user-model');
 const Message = require('../database/message-model');
 
 module.exports = (app) => {
   app.get('/', function(req, res) {
-    const date = new Date();
-    res.render("home");
+    if (req.user) {
+      const dateString = new Date().toISOString().slice(0, 10);
+      res.redirect('/calendar/' + dateString.split("-").join("/"));
+      return;
+    }
+    res.render('home');
+  });
+
+  app.route('/register')
+    .get((req, res) => {
+      res.render('register');
+    })
+    .post((req, res) => {
+      User.register(new User({
+        username: req.body.username,
+        accountType: "member"
+      }), req.body.password, function(err, result) {
+        if (err) {
+          return res.render('register');
+        }
+        passport.authenticate('local')(req, res, function() {
+          res.redirect('/users');
+        })
+      })
+    })
+
+  app.post('/login', passport.authenticate('local'), function(req, res) {
+    res.redirect('/users');
+  });
+
+  app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
   });
 
   app.get("/about", function(req, res) {

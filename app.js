@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -5,17 +6,23 @@ const mongoose = require("mongoose");
 const calendarRoutes = require('./routes/calendar-routes');
 const taskRoutes = require('./routes/task-routes');
 
-const Task = require('./database/task-model');
-
-require('dotenv').config();
+const session = require('express-session');
+const passport = require('passport');
 
 app.set('view engine', "ejs");
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-require('./database/connection')();
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
+require('./middleware/passport-config')();
+require('./database/connection')();
 require('./routes/home-routes.js')(app);
 
 app.use('/calendar', calendarRoutes);
