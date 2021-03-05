@@ -3,18 +3,25 @@
 <%- include("partials/navbar") -%>
 
   <div class="container">
-    <h1 id="heading">Contact</h1>
-  </div>
+    <div class="headingBox" style="margin-top: 32px;">
+      <h1 id="heading">Contact</h1>
+    </div>
 
-  <div class="container">
-    <h5 class="contactMessage"><%= contactMessage %></h5>
-    <div class="card-body">
+    <div class="loginForm my-5 w-100">
+      <p class="mb-3"><%= contactMessage %></p>
       <form action="/contact" method="post">
-        <label for="userName">Enter your name: </label>
-        <input type="text" id="userName" name="userName" autocomplete="off">
-        <label for="userMail"> Enter your e-Mail: </label>
-        <input type="email" id="userMail" name="userMail" placeholder="(optional)" autocomplete="off">
-        <textarea name="message" rows="8" cols="80" placeholder="Enter your message"></textarea>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingUserName" name="userName" placeholder="Enter Your Name" required autocomplete="off">
+          <label for="floatingUserName">Enter Your Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingUserMail" name="userMail" placeholder="Enter Your e-Mail (optional)" autocomplete="off">
+          <label for="floatingUserMail">Enter Your e-Mail (optional)</label>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="floatingMessage" name="message" placeholder="Enter Your Message" required></textarea>
+          <label for="floatingMessage">Enter Your Message</label>
+        </div>
         <button class="btn btn-primary taskButton" type="submit" name="sendMessage">Send</button>
       </form>
     </div>
