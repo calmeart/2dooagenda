@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
     req.daysOfMonth.map(async dateObj => {
       const {year, month, day, className} = dateObj;
       const taskDate = year + "-" + month + "-" + day;
-      const foundTask = await Task.find({date: new Date(taskDate)});
+      const foundTask = await Task.find({userid: req.user._id, date: new Date(taskDate)});
       return {year, month, day, tasks: foundTask, className};
     })
   )

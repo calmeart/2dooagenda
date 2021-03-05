@@ -59,6 +59,7 @@ router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
   const dateString = `${year}-${month}-${day}`;
   const listTitle = getDate(dateString);
   const foundTasks = await Task.find({
+    userid: req.user._id,
     date: new Date(dateString)
   });
   res.render("days", {
