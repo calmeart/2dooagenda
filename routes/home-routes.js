@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const User = require('../database/user-model');
 const Message = require('../database/message-model');
+const validateRegister = require('../middleware/validate-registration');
 
 module.exports = (app) => {
   app.get('/', function(req, res) {
@@ -17,13 +18,12 @@ module.exports = (app) => {
     .get((req, res) => {
       res.render('register');
     })
-    .post((req, res) => {
+    .post(validateRegister, (req, res) => {
       User.register(new User({
         username: req.body.username,
       }), req.body.password, function(err, result) {
         if (err) {
-          console.log(err);
-          return res.render('register');
+          res.render('error', {err: err.message});
         }
         passport.authenticate('local')(req, res, function() {
           const dateString = new Date().toISOString().slice(0, 10);

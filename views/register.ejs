@@ -11,12 +11,15 @@
       <p class="mb-3">Enter an username and password to create your account</p>
       <form action="/register" method="post">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username" required>
+          <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username"
+          aria-describedby="usernameHelp" required>
           <label for="floatingInput">Username</label>
+          <div id="usernameHelp" class="form-text">Username must be at least 4 characters</div>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" aria-describedby="passwordHelp" required>
           <label for="floatingPassword">Password</label>
+          <div id="passwordHelp" class="form-text">Password must be at least 6 characters</div>
         </div>
         <button class="btn btn-primary mb-3" type="submit" name="registerButton">Register</button>
       </form>
