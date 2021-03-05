@@ -16,14 +16,14 @@ function getDate(date = new Date()) {
 };
 
 router.post("/", async function(req,res){
-  res.redirect("/calendar/" + req.body.calendar.split("-").join("/"));
-})
-
-router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
   if (!req.user) {
     res.redirect("/");
     return;
   }
+  res.redirect("/calendar/" + req.body.calendar.split("-").join("/"));
+})
+
+router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
   let {year, month} = req.params;
   month = new Date(year, month - 1).toLocaleDateString('en-GB', { month:'long' });
   res.render('months', {
@@ -51,10 +51,7 @@ router.get('/:year', (req, res) => {
 });
 
 router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
-  if (!req.user) {
-    res.redirect("/");
-    return;
-  }
+
   const {year, month, day} = req.params;
   const dateString = `${year}-${month}-${day}`;
   const listTitle = getDate(dateString);
@@ -71,6 +68,10 @@ router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
 });
 
 router.post('/create', async function(req, res) {
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   let {newItem, newNotes, addItem } = req.body;
   if (newNotes === "") {newNotes = "No additional info"};
   const tempTask = new Task({taskName: newItem, date: addItem, notes: newNotes, userid: req.user._id});
@@ -79,6 +80,10 @@ router.post('/create', async function(req, res) {
 });
 
 router.post("/edit", async function(req,res){
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   if (req.body.editTask) {
     res.redirect("/tasks/" + req.body.editTask);
   }

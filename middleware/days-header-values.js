@@ -2,6 +2,11 @@ const moment = require('moment');
 
 module.exports = (req, res, next) => {
 
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
+
   const {year, month, day} = req.params;
   const dateString = `${year}-${month}-${day}`;
 

@@ -30,6 +30,10 @@ router.get("/:taskid", function(req,res){
 });
 
 router.post("/", async function(req,res){
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   const {editItem, editNotes, addItem} = req.body;
   const query = new Date(req.body.dateValue).toISOString().slice(0,10);
   await Task.findByIdAndUpdate(addItem, { $set: {taskName: editItem, notes: editNotes}}, function(err){

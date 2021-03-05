@@ -2,6 +2,10 @@
 // USE MOMENT TO CALCULATE ONE MONTH BEFORE AND ONE MONTH AFTER
 
 module.exports = (req, res, next) => {
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   const {year, month} = req.params;
   const calendarArray = [];
   const date = new Date(year, month, 0).getDate();
