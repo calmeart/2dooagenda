@@ -20,6 +20,10 @@ router.post("/", async function(req,res){
 })
 
 router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, res) {
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   let {year, month} = req.params;
   month = new Date(year, month - 1).toLocaleDateString('en-GB', { month:'long' });
   res.render('months', {
@@ -30,6 +34,10 @@ router.get("/:year/:month", getDaysOfMonth, addTasksToDate, async function(req, 
 });
 
 router.get('/:year', (req, res) => {
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   const year = req.params.year;
   const yearArray = {
     previousYear: (Number(year) - 1).toString(),
@@ -43,6 +51,10 @@ router.get('/:year', (req, res) => {
 });
 
 router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   const {year, month, day} = req.params;
   const dateString = `${year}-${month}-${day}`;
   const listTitle = getDate(dateString);

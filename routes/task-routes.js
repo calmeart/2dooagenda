@@ -12,6 +12,10 @@ function getDate(date = new Date()) {
 };
 
 router.get("/:taskid", function(req,res){
+  if (!req.user) {
+    res.redirect("/");
+    return;
+  }
   Task.findById(req.params.taskid, function(err, doc) {
     if (err) {
       console.log(err);
