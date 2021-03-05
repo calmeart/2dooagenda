@@ -60,7 +60,7 @@ router.get("/:year/:month/:day", daysHeaderValues, async function(req, res) {
 router.post('/create', async function(req, res) {
   let {newItem, newNotes, addItem } = req.body;
   if (newNotes === "") {newNotes = "No additional info"};
-  const tempTask = new Task({taskName: newItem, date: addItem, notes: newNotes});
+  const tempTask = new Task({taskName: newItem, date: addItem, notes: newNotes, userid: req.user._id});
   await tempTask.save();
   res.redirect("/calendar/" + req.body.addItem.split("-").join("/"));
 });

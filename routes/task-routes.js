@@ -28,7 +28,7 @@ router.get("/:taskid", function(req,res){
 router.post("/", async function(req,res){
   const {editItem, editNotes, addItem} = req.body;
   const query = new Date(req.body.dateValue).toISOString().slice(0,10);
-  await Task.findByIdAndUpdate(addItem, {taskName: editItem, notes: editNotes}, function(err){
+  await Task.findByIdAndUpdate(addItem, { $set: {taskName: editItem, notes: editNotes}}, function(err){
     if (err) {console.log(err)};
   });
   res.redirect("/calendar/" + query.split("-").join("/"));

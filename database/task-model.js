@@ -9,7 +9,8 @@ const taskSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  notes: String
+  notes: String,
+  userid: String
 });
 
 module.exports = mongoose.model("Task", taskSchema);
